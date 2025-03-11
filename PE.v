@@ -15,9 +15,9 @@ always @(posedge clk or posedge rst) begin
         result <= 0;
     end
     else begin
-        outp_south <= inp_north;  // Pass inp_north to outp_south
-        outp_east <= inp_west;    // Pass inp_west to outp_east
-        result <= result + (inp_north * inp_west);  // Add the product of inp_north and inp_west to result
+        outp_south <= inp_north;  
+        outp_east <= inp_west;    
+        result <= result + (inp_north * inp_west);
     end
 end
 

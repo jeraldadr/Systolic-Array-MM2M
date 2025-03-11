@@ -27,10 +27,10 @@ module systolic_array(
     input wire rst, 
     output reg done);
 
-// Your design is here
+
 reg [3:0] cycle_counter;
-wire [7:0] out_south[3:0][3:0]; // Connects PE outputs to next row
-wire [7:0] out_east[3:0][3:0];  // Connects PE outputs to next column
+wire [7:0] out_south[3:0][3:0]; 
+wire [7:0] out_east[3:0][3:0];  
 wire [15:0] res[3:0][3:0];
 
 PE pe00 (.inp_north(inp_north0), .inp_west(inp_west0), .clk(clk), .rst(rst), .outp_south(out_south[0][0]), .outp_east(out_east[0][0]), .result(res[0][0]));
@@ -90,7 +90,7 @@ PE pe15 (.inp_north(out_south[2][3]), .inp_west(out_east[3][2]), .clk(clk), .rst
         out13 = res[3][2]; 
         out14 = res[3][1]; 
         out15 = res[3][0];
-        if (cycle_counter < 7) begin
+      if (cycle_counter < 11) begin
             cycle_counter <= cycle_counter + 1;
         end else begin
             done <= 1;  // Indicate computation is complete
