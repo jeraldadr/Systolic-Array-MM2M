@@ -1,5 +1,3 @@
-
-
 module PE(
     input wire [7:0] inp_north, 
     input wire [7:0] inp_west,   
@@ -17,11 +15,10 @@ always @(posedge clk or posedge rst) begin
         result <= 0;
     end
     else begin
-        result <= inp_north * inp_west;
-        outp_south <= result;
-        outp_east <= result;
+        outp_south <= inp_north;  // Pass inp_north to outp_south
+        outp_east <= inp_west;    // Pass inp_west to outp_east
+        result <= result + (inp_north * inp_west);  // Add the product of inp_north and inp_west to result
     end
 end
-
 
 endmodule
